@@ -9,21 +9,19 @@ import React, {
   StyleSheet,
   Text,
   View
+
 } from 'react-native';
+
+var ToolbarAndroid = require('ToolbarAndroid');
+
+
 
 class CoffeCall extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+
+      <View >
+        <ToolbarAndroid title="Samanage Coffee Call" show="always" style={styles.toolbar} />
       </View>
     );
   }
@@ -43,9 +41,15 @@ const styles = StyleSheet.create({
   },
   instructions: {
     textAlign: 'center',
-    color: '#333333',
+    color: '#999',
     marginBottom: 5,
   },
+  toolbar: {
+    height: 56,
+    color: '#fff',
+    backgroundColor:'#3366FF',
+
+  }
 });
 
 AppRegistry.registerComponent('CoffeCall', () => CoffeCall);
