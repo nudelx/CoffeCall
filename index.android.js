@@ -21,7 +21,7 @@ class CoffeCall extends Component {
     return (
 
       <View >
-        <ToolbarAndroid title="Samanage Coffee Call" show="always" style={styles.toolbar} />
+        <ToolbarAndroid title="Samanage Coffee Call v.1" show="always" style={styles.toolbar} />
       </View>
     );
   }
