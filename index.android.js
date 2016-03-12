@@ -21,7 +21,12 @@ class CoffeCall extends Component {
     return (
 
       <View >
-        <ToolbarAndroid title="Samanage Coffee Call v.1" show="always" style={styles.toolbar} />
+        <ToolbarAndroid
+        title="Samanage Coffee Call v.1"
+        logo={require('./android/app/assets/images/sacoffeelogo.png')}
+        show="always"
+
+        style={styles.toolbar} />
       </View>
     );
   }
@@ -45,9 +50,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   toolbar: {
-    height: 56,
-    color: '#fff',
-    backgroundColor:'#3366FF',
+    margin: 10,
+    height: 56
 
   }
 });
