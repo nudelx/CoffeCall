@@ -14,7 +14,7 @@ import coffeUserAction from '../actions/get_coffee_user_action.js'
 export default class Display extends Component {
 
 	componentWillMount () {
-		debugger
+
 		if (this.props.coffeUser) {
 			Alert.alert("debug",'user found')
 		} else {
