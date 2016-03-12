@@ -12,9 +12,16 @@ import React, {
 
 } from 'react-native';
 
-var ToolbarAndroid = require('ToolbarAndroid');
+
+import reducers from './android/app/src/reducers/index';
+import ReduxPromise from 'redux-promise';
+import { createStore, applyMiddleware } from 'redux';
+const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 
+
+import ToolbarAndroid  from 'ToolbarAndroid';
+import logo from './android/app/assets/images/sacoffeelogo.png';
 
 class CoffeCall extends Component {
   render() {
@@ -22,10 +29,8 @@ class CoffeCall extends Component {
 
       <View >
         <ToolbarAndroid
-        title="Samanage Coffee Call v.1"
-        logo={require('./android/app/assets/images/sacoffeelogo.png')}
+        logo={logo}
         show="always"
-
         style={styles.toolbar} />
       </View>
     );
@@ -51,8 +56,7 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     margin: 10,
-    height: 56
-
+    height: 56,
   }
 });
 
