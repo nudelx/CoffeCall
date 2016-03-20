@@ -3,7 +3,9 @@ import React, {
 	TextInput,
 	View,
 	AsyncStorage,
-	Alert
+	Alert,
+	StyleSheet,
+	TouchableHighlight
 
 } from 'react-native';
 import { Component } from 'react';
@@ -13,39 +15,74 @@ import coffeUserAction from '../actions/get_coffee_user_action.js'
 
 export default class Display extends Component {
 
-	componentWillMount () {
 
+	askForCoffeeUser(){
+		debugger
 		if (this.props.coffeUser) {
+			debugger
 			Alert.alert("debug",'user found')
 		} else {
 			Alert.alert("debug",'user NOT found')
 
-		}
+			this.props.getCoffeeUser()
 
+		}
 	}
 
   render() {
-
+  	this.askForCoffeeUser();
     return (
-    	<View>
-    	<Text>Check Name Exist</Text>
+    	<View  style={styles.main_view}>
+    	<Text  style={styles.title} >Welcome to Samanage Coffee Call </Text>
+
+    	<View style={styles.inputHolder}>
     		<TextInput
           	autoFocus = {true}
           	placeholder = {'enter your name or nicname blya'}
-    				style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-    				 />
+    				style={styles.nameInput}
+    				/>
+    	</View>
+
     	</View>
     );
   }
 }
 
-function mapStateToProps(state) {   /// like state.weather
+function mapStateToProps(state) {
 
-		return state; /// like { weather:weather }
+		return {coffeUser: state.coffeeUserReducer.coffeUser};
 }
 
 function mapDispatchToProps(dispatch){
 	return coffeUserAction(dispatch)
 }
 
-export default connect( null , mapDispatchToProps)(Display)
+const styles = StyleSheet.create({
+
+main_view: {
+	marginTop: 10
+},
+
+title:{
+	textAlign: 'center',
+	fontSize: 24,
+	marginBottom: 20
+},
+
+nameInput:{
+	height: 40,
+	borderWidth: 1,
+	color: 'blue',
+	textAlignVertical: 'top'
+},
+
+inputHolder:{
+	borderWidth: 2,
+
+
+
+}
+
+});
+
+export default connect( mapStateToProps , mapDispatchToProps)(Display)

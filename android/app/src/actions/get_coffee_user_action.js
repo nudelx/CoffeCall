@@ -9,7 +9,8 @@ const coffeeUserReceived = createAction(
 const coffeUserAction = (dispatch) => {
 	return {
 		getCoffeeUser:() => {
-			dispatch(coffeeUserReceived())
+
+			dispatch(coffeeUserReceived({testUser:'alex'}))
 		}
 	}
 

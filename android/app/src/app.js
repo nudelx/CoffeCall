@@ -39,7 +39,7 @@ export default class CoffeCall extends Component {
           logo={logo}
           show="always"
           style={styles.toolbar} />
-          <Display/>
+          <Display />
         </View>
       </Provider>
 
@@ -66,7 +66,8 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     margin: 10,
-    height: 56,
+    height: 56
+
   },
   modalButton: {
     marginTop: 10,
