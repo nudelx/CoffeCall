@@ -5,13 +5,16 @@ import React, {
 	AsyncStorage,
 	Alert,
 	StyleSheet,
-	TouchableHighlight
+	TouchableHighlight,
+	Image
 
 } from 'react-native';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux'
 import coffeUserAction from '../actions/get_coffee_user_action.js'
+import submitImg from '../../assets/images/submit.png';
+import WelcomeScreen from '../containers/welcome_screen.js'
 
 export default class Display extends Component {
 
@@ -33,16 +36,7 @@ export default class Display extends Component {
   	this.askForCoffeeUser();
     return (
     	<View  style={styles.main_view}>
-    	<Text  style={styles.title} >Welcome to Samanage Coffee Call </Text>
-
-    	<View style={styles.inputHolder}>
-    		<TextInput
-          	autoFocus = {true}
-          	placeholder = {'enter your name or nicname blya'}
-    				style={styles.nameInput}
-    				/>
-    	</View>
-
+    		<WelcomeScreen/>
     	</View>
     );
   }
@@ -60,27 +54,8 @@ function mapDispatchToProps(dispatch){
 const styles = StyleSheet.create({
 
 main_view: {
-	marginTop: 10
-},
-
-title:{
-	textAlign: 'center',
-	fontSize: 24,
-	marginBottom: 20
-},
-
-nameInput:{
-	height: 40,
-	borderWidth: 1,
-	color: 'blue',
-	textAlignVertical: 'top'
-},
-
-inputHolder:{
-	borderWidth: 2,
-
-
-
+	marginTop: 10,
+	// borderWidth: 3
 }
 
 });

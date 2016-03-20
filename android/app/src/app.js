@@ -7,7 +7,9 @@ import React, {
   Modal,
   TouchableHighlight,
   TextInput,
-  AsyncStorage
+  AsyncStorage,
+  Image
+
 
 } from 'react-native';
 
@@ -34,7 +36,10 @@ export default class CoffeCall extends Component {
 
     return (
       <Provider store={ createStoreWithMiddleware(reducers) }>
-        <View >
+        <View  style={styles.mainTheme}>
+          <View style={styles.bgWraper} >
+            <Image source={require('../assets/images/coffee-pattern-sm.jpg')} style= {styles.backgroundImage} ></Image>
+          </View>
           <ToolbarAndroid
           logo={logo}
           show="always"
@@ -72,6 +77,24 @@ const styles = StyleSheet.create({
   modalButton: {
     marginTop: 10,
   },
+  mainTheme: {
+    backgroundColor: '#fff9e1',
+    flex: 1
+
+  },
+
+  bgWraper: {
+    position: 'absolute',
+    top: 0, bottom: 0, left: 0, right: 0,
+    opacity: 0.2
+
+  },
+
+  backgroundImage: {
+    flex:1,
+    resizeMode: "stretch"
+  }
+
 });
 
 
