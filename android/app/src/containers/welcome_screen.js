@@ -41,7 +41,7 @@ export default class Welcome extends Component {
 				    				/>
 				    	</View>
 
-				    	<TouchableHighlight style={styles.submitBtn} >
+				    	<TouchableHighlight style={styles.submitBtn} onPress={()=>{ Alert.alert("click") }}>
 				      	<Image style={styles.button} source={submitImg} />
 				    	</TouchableHighlight>
 
