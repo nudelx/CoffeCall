@@ -1,0 +1,18 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+            "sourceType": "module",
+            "ecmaFeatures": {
+                "jsx": true
+            }
+    },
+
+
+        "extends": "airbnb",
+        "rules": {
+            "semi": 2,
+
+            "react/prefer-es6-class": 0,
+        },
+
+}

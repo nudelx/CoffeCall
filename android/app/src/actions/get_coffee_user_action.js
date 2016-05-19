@@ -11,7 +11,6 @@ const coffeUserAction = (dispatch) => {
     return {
         getCoffeeUser:() => {
             AsyncStorage.getItem('coffeeUser',function(err, data){
-                debugger;
                 Alert.alert("get user => " + data);
                 dispatch(coffeeUserReceived({testUser:data}))
 

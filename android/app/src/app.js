@@ -1,15 +1,15 @@
 import React, {
-  AppRegistry,
+  // AppRegistry,
   Component,
   StyleSheet,
-  Text,
+  // Text,
   View,
-  Modal,
-  TouchableHighlight,
-  TextInput,
-  AsyncStorage,
-  Image
-
+  // Modal,
+  // TouchableHighlight,
+  // TextInput,
+  // AsyncStorage,
+  Image,
+  ToolbarAndroid,
 
 } from 'react-native';
 
@@ -20,37 +20,11 @@ import { Provider } from 'react-redux';
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
 
-import ToolbarAndroid  from 'ToolbarAndroid';
+// import ToolbarAndroid from 'ToolbarAndroid';
 import logo from '../assets/images/sacoffeelogo.png';
-import Display from './containers/main_display'
+import Display from './containers/main_display';
 
-
-
-
-
-export default class CoffeCall extends Component {
-
-
-
-  render() {
-
-    return (
-      <Provider store={ createStoreWithMiddleware(reducers) }>
-        <View  style={styles.mainTheme}>
-          <View style={styles.bgWraper} >
-            <Image source={require('../assets/images/coffee-pattern-sm.jpg')} style= {styles.backgroundImage} ></Image>
-          </View>
-          <ToolbarAndroid
-          logo={logo}
-          show="always"
-          style={styles.toolbar} />
-          <Display />
-        </View>
-      </Provider>
-
-    );
-  }
-}
+const logoIcon = require('../assets/images/coffee-pattern-sm.jpg');
 
 const styles = StyleSheet.create({
   container: {
@@ -71,7 +45,7 @@ const styles = StyleSheet.create({
   },
   toolbar: {
     margin: 10,
-    height: 56
+    height: 56,
 
   },
   modalButton: {
@@ -79,25 +53,42 @@ const styles = StyleSheet.create({
   },
   mainTheme: {
     backgroundColor: '#fff9e1',
-    flex: 1
-
+    flex: 1,
   },
 
   bgWraper: {
     position: 'absolute',
     top: 0, bottom: 0, left: 0, right: 0,
-    opacity: 0.2
+    opacity: 0.2,
 
   },
 
   backgroundImage: {
-    flex:1,
-    resizeMode: "stretch"
-  }
-
+    flex: 1,
+    resizeMode: 'stretch',
+  },
 });
 
 
+export default class CoffeCall extends Component {
+  render() {
+    return (
+      <Provider store={createStoreWithMiddleware(reducers)}>
+        <View style={styles.mainTheme}>
+          <View style={styles.bgWraper}>
+            <Image
+              source={logoIcon}
+              style={styles.backgroundImage}/>
 
+          </View>
+          <ToolbarAndroid
+            logo={logo}
+            show="always"
+            style={styles.toolbar}/>
+          <Display />
+        </View>
+      </Provider>
 
-
+    );
+  }
+}

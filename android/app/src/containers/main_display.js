@@ -19,20 +19,19 @@ import WelcomeScreen from '../containers/welcome_screen.js'
 export default class Display extends Component {
 
 
-	askForCoffeeUser(){
+	askForCoffeeUser () {
 		debugger
 		if (this.props.coffeUser) {
 			debugger
 			Alert.alert("debug",'user found')
 		} else {
 			Alert.alert("debug",'user NOT found')
-
 			this.props.getCoffeeUser()
-
 		}
 	}
 
-  render() {
+  render () {
+  	Alert.alert("debug",'render')
   	this.askForCoffeeUser();
     return (
     	<View  style={styles.main_view}>
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
 
 main_view: {
 	marginTop: 10,
-	// borderWidth: 3
+	borderWidth: 3
 }
 
 });
