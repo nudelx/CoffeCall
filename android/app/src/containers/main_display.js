@@ -1,62 +1,55 @@
 import React, {
-	Text,
-	TextInput,
-	View,
-	AsyncStorage,
-	Alert,
-	StyleSheet,
-	TouchableHighlight,
-	Image
-
+  PropTypes,
+  View,
+  Alert,
+  StyleSheet,
 } from 'react-native';
+
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux'
-import coffeUserAction from '../actions/get_coffee_user_action.js'
-import submitImg from '../../assets/images/submit.png';
-import WelcomeScreen from '../containers/welcome_screen.js'
+import coffeUserAction from '../actions/get_coffee_user_action.js';
+import WelcomeScreen from '../containers/welcome_screen.js';
 
-export default class Display extends Component {
+const styles = StyleSheet.create({
+  main_view: {
+    marginTop: 10,
+    borderWidth: 3,
+  },
+});
 
+export class Display extends Component {
 
-	askForCoffeeUser () {
-		debugger
-		if (this.props.coffeUser) {
-			debugger
-			Alert.alert("debug",'user found')
-		} else {
-			Alert.alert("debug",'user NOT found')
-			this.props.getCoffeeUser()
-		}
-	}
+  static propTypes = {
+    coffeUser: PropTypes.string,
+    getCoffeeUser: PropTypes.func.isRequired,
+  };
 
-  render () {
-  	Alert.alert("debug",'render')
-  	this.askForCoffeeUser();
+  askForCoffeeUser() {
+    if (this.props.coffeUser) {
+      Alert.alert('debug', 'user found');
+    } else {
+      Alert.alert('debug', 'user NOT found');
+      this.props.getCoffeeUser();
+    }
+  }
+
+  render() {
+    Alert.alert('debug', `render => ${this.props.coffeUser}`);
+    this.askForCoffeeUser();
     return (
-    	<View  style={styles.main_view}>
-    		<WelcomeScreen/>
-    	</View>
+      <View style={styles.main_view}>
+        <WelcomeScreen />
+      </View>
     );
   }
 }
 
 function mapStateToProps(state) {
-
-		return {coffeUser: state.coffeeUserReducer.coffeUser};
+  return { coffeUser: state.coffeeUserReducer.coffeUser };
 }
 
-function mapDispatchToProps(dispatch){
-	return coffeUserAction(dispatch)
+function mapDispatchToProps(dispatch) {
+  return coffeUserAction(dispatch);
 }
 
-const styles = StyleSheet.create({
-
-main_view: {
-	marginTop: 10,
-	borderWidth: 3
-}
-
-});
-
-export default connect( mapStateToProps , mapDispatchToProps)(Display)
+export default connect(mapStateToProps, mapDispatchToProps)(Display);

@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
   },
 });
 
-
 export default class CoffeCall extends Component {
   render() {
     return (
@@ -78,13 +77,14 @@ export default class CoffeCall extends Component {
           <View style={styles.bgWraper}>
             <Image
               source={logoIcon}
-              style={styles.backgroundImage}/>
-
+              style={styles.backgroundImage}
+            />
           </View>
           <ToolbarAndroid
             logo={logo}
             show="always"
-            style={styles.toolbar}/>
+            style={styles.toolbar}
+          />
           <Display />
         </View>
       </Provider>
